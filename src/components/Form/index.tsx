@@ -13,8 +13,10 @@ export const Form: React.FC<IForm> = ({name, dispatch}) => {
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     const form = e.target as typeof e.target & ProjectFormType;
+    if (name) {
+      dispatch(changeMode());
+    }
     dispatch(saveName(form.name.value));
-    dispatch(changeMode());
   };
 
   return (

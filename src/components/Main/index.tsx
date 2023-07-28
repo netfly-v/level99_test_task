@@ -8,6 +8,7 @@ import {RootState} from '../../slices';
 export const Main: React.FC = () => {
   const name = useSelector((state: RootState) => state.name);
   const dispatch = useDispatch();
+  console.log(name);
 
   return (
     <div className={styles.main}>
