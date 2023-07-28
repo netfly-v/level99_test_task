@@ -1,0 +1,29 @@
+@import "./vars";
+
+%button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    padding: 13px 24px;
+    gap: 10px;
+    border-radius: 10px;
+    width: 100%;
+    color: $lightPrimary;
+    background-color: $darkSecondary;
+    &:hover {
+        opacity: 50%;
+    }
+  }
+
+%flexColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+%flexCenterColumn {
+    @extend %flexColumn;
+    justify-content: center;
+    align-items: center;
+}

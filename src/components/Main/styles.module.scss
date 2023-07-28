@@ -1,0 +1,15 @@
+@import "../../scss/vars";
+@import "../../scss/repeat";
+
+.main {
+    @extend %flexCenterColumn;
+    width: 500px;
+    min-height: 210px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: $darkPrimary;
+    color: $darkSecondary;
+    @media (max-width: 640px) {
+        width: auto;
+      }
+}
