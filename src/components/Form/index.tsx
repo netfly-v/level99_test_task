@@ -2,14 +2,12 @@ import React from 'react';
 import styles from './styles.module.scss';
 import {ProjectFormType} from './types';
 import {changeMode, saveName} from '../../slices/nameSlice';
-import {AppDispatch} from '../../slices';
+import {AppDispatch, RootState} from '../../slices';
+import {useDispatch, useSelector} from 'react-redux';
 
-interface IForm {
-  name: string | undefined;
-  dispatch: AppDispatch;
-}
-
-export const Form: React.FC<IForm> = ({name, dispatch}) => {
+export const Form: React.FC = () => {
+  const name = useSelector((state: RootState) => state.name.value);
+  const dispatch: AppDispatch = useDispatch();
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     const form = e.target as typeof e.target & ProjectFormType;

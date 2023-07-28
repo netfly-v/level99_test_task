@@ -1,14 +1,12 @@
 import React from 'react';
 import styles from './styles.module.scss';
-import {AppDispatch} from '../../slices';
+import {AppDispatch, RootState} from '../../slices';
 import {changeMode} from '../../slices/nameSlice';
+import {useDispatch, useSelector} from 'react-redux';
 
-interface IResult {
-  name: string;
-  dispatch: AppDispatch;
-}
-
-export const Result: React.FC<IResult> = ({name, dispatch}) => {
+export const Result: React.FC = () => {
+  const name = useSelector((state: RootState) => state.name.value);
+  const dispatch: AppDispatch = useDispatch();
   const onEditClick = () => dispatch(changeMode());
   return (
     <div className={styles.result}>
